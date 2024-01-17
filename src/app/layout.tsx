@@ -1,8 +1,9 @@
 import type { Metadata } from 'next'
-import { Manrope } from 'next/font/google'
+import { Tiro_Gurmukhi } from 'next/font/google'
 import './globals.css'
 
-const manrope = Manrope({ subsets: ['latin'] })
+// Call the font loader and assign it to a constant in the module scope
+const tiroGurmukhiFontLoader = Tiro_Gurmukhi({ weights: [400], subsets: ['latin-ext'] });
 
 export const metadata: Metadata = {
   title: 'Create Next App',
@@ -16,7 +17,7 @@ export default function RootLayout({
 }) {
   return (
     <html lang="en" className='bg-[#8c9192] text-slate-200'>
-      <body className={manrope.className}>{children}</body>
+      <body className={`font-${tiroGurmukhiFontLoader}`}>{children}</body>
     </html>
   )
 }
