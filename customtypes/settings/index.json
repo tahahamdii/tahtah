@@ -1,0 +1,89 @@
+{
+  "id": "settings",
+  "label": "settings",
+  "format": "custom",
+  "repeatable": false,
+  "status": true,
+  "json": {
+    "Main": {
+      "name": {
+        "type": "Text",
+        "config": {
+          "label": "name",
+          "placeholder": ""
+        }
+      },
+      "navitems": {
+        "type": "Group",
+        "config": {
+          "label": "NavItems",
+          "fields": {
+            "label": {
+              "type": "Link",
+              "config": {
+                "label": "Label",
+                "placeholder": "",
+                "select": null
+              }
+            }
+          }
+        }
+      },
+      "cta_link": {
+        "type": "Link",
+        "config": {
+          "label": "CTA link",
+          "placeholder": "",
+          "select": null
+        }
+      },
+      "cta_label": {
+        "type": "Text",
+        "config": {
+          "label": "CTA label",
+          "placeholder": ""
+        }
+      },
+      "github": {
+        "type": "Link",
+        "config": {
+          "label": "Github",
+          "placeholder": "",
+          "select": null
+        }
+      },
+      "linkedin": {
+        "type": "Link",
+        "config": {
+          "label": "Linkedin",
+          "placeholder": "",
+          "select": null
+        }
+      }
+    },
+    "SEO and Meta Data": {
+      "meta_title": {
+        "type": "Text",
+        "config": {
+          "label": "Meta Title",
+          "placeholder": ""
+        }
+      },
+      "description": {
+        "type": "Text",
+        "config": {
+          "label": "Description",
+          "placeholder": ""
+        }
+      },
+      "og_image": {
+        "type": "Image",
+        "config": {
+          "label": "OG image",
+          "constraint": {},
+          "thumbnails": []
+        }
+      }
+    }
+  }
+}

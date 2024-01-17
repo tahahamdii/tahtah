@@ -1,11 +1,9 @@
-@tailwind base;
-@tailwind components;
-@tailwind utilities;
 
 @font-face {
     font-family: 'YourFontName';
-    src: url('/fonts/your-font-file.otf') format('opentype');
+    src: url('../../fonts/SFPRODISPLAYTHINITALIC.OTF') format('opentype');
     /* Add more src lines for different font formats if needed (e.g., woff, woff2) */
     font-weight: normal;
     font-style: normal;
   }
+  

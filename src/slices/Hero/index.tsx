@@ -3,6 +3,12 @@ import { Content, KeyTextField } from "@prismicio/client";
 import { SliceComponentProps } from "@prismicio/react";
 import {useEffect, useRef} from "react";
 import { gsap } from "gsap";
+import './Hero.css'
+import Bounded from "@/components/Bounded";
+import img from '../../assets/ena.png';
+import Image from 'next/image'; // Import the next/image component
+
+
 
 /**
  * Props for `Hero`.
@@ -79,26 +85,34 @@ const renderLetters  = (name:KeyTextField, key: string) => {
 
 
   return (
-    <section
+    <Bounded
       data-slice-type={slice.slice_type}
       data-slice-variation={slice.variation}
       ref={component}
     >
-      <div className="grid min-h-[70vh] grid-cols-1 md:grid-cols-2 items-center">
-        <div className="col-start-1 md:row-start-1">
+      <div className="grid min-h-[70vh] grid-cols-1 md:grid-cols-2 items-center relative z-10">
+        <div className="col-start-1 md:row-start-1 relative z-20 flex flex-col items-center">
           <h1 className="mb-8 text-[clamp(3rem,20vmin,20rem)] font-extrabold leading-none tracking-tighter" aria-label={slice.primary.firstname + " " + slice.primary.lastname}>
             <span className="block text-slate-300">{renderLetters(slice.primary.firstname, "first")}</span>
             <span className="-mt[.2em] block text-slate-200">{renderLetters(slice.primary.lastname, "last")}</span>
             
 
           </h1>
-            <span className="job-title1 block text-white bg-clip-text text-2xl font-light  tracking-[.2em] text-transparent opacity-100 md:text-4xl">{slice.primary.tagline1}</span>
-            <span className="job-title2 block text-white bg-clip-text text-2xl font-light  tracking-[.2em] text-transparent opacity-100 md:text-4xl">{slice.primary.tagline2}</span>
-            <span className="job-title3 block text-white bg-clip-text text-2xl font-light  tracking-[.2em] text-transparent opacity-100 md:text-4xl">{slice.primary.tagline3}</span>
-
+            <span style={{ fontFamily: 'YourFontName' }} className="job-title1 block text-white bg-clip-text text-2xl font-light  tracking-[.2em] text-transparent opacity-100 md:text-4xl">{slice.primary.tagline1}</span>
+            <span style={{ fontFamily: 'YourFontName' }} className="job-title2 block text-white bg-clip-text text-2xl font-light  tracking-[.2em] text-transparent opacity-100 md:text-4xl">{slice.primary.tagline2}</span>
+            <span style={{ fontFamily: 'YourFontName' }} className="job-title3 block text-white bg-clip-text text-2xl font-light  tracking-[.2em] text-transparent opacity-100 md:text-4xl">{slice.primary.tagline3}</span>
+            <div className="absolute inset-0 z-0 flex items-center justify-center">
+        <Image
+          className="object-cover"
+          src={img}
+          alt="Background Image"
+          layout="fill"
+          quality={100}
+        />
+      </div>
         </div>
       </div>
-    </section>
+    </Bounded>
   );
 };
 
