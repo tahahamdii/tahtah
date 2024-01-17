@@ -46,6 +46,20 @@
             "label": "Tagline3",
             "placeholder": ""
           }
+        },
+        "developer": {
+          "type": "Text",
+          "config": {
+            "label": "developer",
+            "placeholder": ""
+          }
+        },
+        "dataanalyst": {
+          "type": "Text",
+          "config": {
+            "label": "dataanalyst",
+            "placeholder": ""
+          }
         }
       },
       "items": {}

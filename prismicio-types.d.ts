@@ -124,6 +124,26 @@ export interface HeroSliceDefaultPrimary {
    * - **Documentation**: https://prismic.io/docs/field#key-text
    */
   tagline3: prismic.KeyTextField;
+
+  /**
+   * developer field in *Hero → Primary*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: hero.primary.developer
+   * - **Documentation**: https://prismic.io/docs/field#key-text
+   */
+  developer: prismic.KeyTextField;
+
+  /**
+   * dataanalyst field in *Hero → Primary*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: hero.primary.dataanalyst
+   * - **Documentation**: https://prismic.io/docs/field#key-text
+   */
+  dataanalyst: prismic.KeyTextField;
 }
 
 /**

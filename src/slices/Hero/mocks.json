@@ -27,6 +27,16 @@
 				"__TYPE__": "FieldContent",
 				"value": "plate",
 				"type": "Text"
+			},
+			"developer": {
+				"__TYPE__": "FieldContent",
+				"value": "death",
+				"type": "Text"
+			},
+			"dataanalyst": {
+				"__TYPE__": "FieldContent",
+				"value": "change",
+				"type": "Text"
 			}
 		},
 		"items": []

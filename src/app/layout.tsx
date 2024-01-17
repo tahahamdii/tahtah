@@ -1,9 +1,8 @@
 import type { Metadata } from 'next'
-import { Tiro_Gurmukhi } from 'next/font/google'
+import { Urbanist } from 'next/font/google'
 import './globals.css'
 
-// Call the font loader and assign it to a constant in the module scope
-const tiroGurmukhiFontLoader = Tiro_Gurmukhi({ weights: [400], subsets: ['latin-ext'] });
+const urbanist = Urbanist({ subsets: ['latin'] })
 
 export const metadata: Metadata = {
   title: 'Create Next App',
@@ -17,7 +16,7 @@ export default function RootLayout({
 }) {
   return (
     <html lang="en" className='bg-[#8c9192] text-slate-200'>
-      <body className={`font-${tiroGurmukhiFontLoader}`}>{children}</body>
+      <body className={urbanist.className}>{children}</body>
     </html>
   )
 }
