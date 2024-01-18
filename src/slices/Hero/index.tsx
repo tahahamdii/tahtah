@@ -93,8 +93,8 @@ const renderLetters  = (name:KeyTextField, key: string) => {
       <div className="grid min-h-[70vh] grid-cols-1 md:grid-cols-2 items-center relative z-10">
         <div className="col-start-1 md:row-start-1 relative z-20 flex flex-col items-center">
           <h1 className="mb-8 text-[clamp(3rem,20vmin,20rem)] font-extrabold leading-none tracking-tighter" aria-label={slice.primary.firstname + " " + slice.primary.lastname}>
-            <span className="block text-slate-300">{renderLetters(slice.primary.firstname, "first")}</span>
-            <span className="-mt[.2em] block text-slate-200">{renderLetters(slice.primary.lastname, "last")}</span>
+            <span className="block text-slate-900">{renderLetters(slice.primary.firstname, "first")}</span>
+            <span className="-mt[.2em] block text-slate-700">{renderLetters(slice.primary.lastname, "last")}</span>
             
 
           </h1>

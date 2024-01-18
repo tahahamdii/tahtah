@@ -1,0 +1,47 @@
+{
+  "id": "educationn",
+  "type": "SharedSlice",
+  "name": "Educationn",
+  "description": "Educationn",
+  "variations": [
+    {
+      "id": "default",
+      "name": "Default",
+      "docURL": "...",
+      "version": "initial",
+      "description": "Default",
+      "imageUrl": "",
+      "primary": {
+        "heading": {
+          "type": "Text",
+          "config": {
+            "label": "Heading",
+            "placeholder": ""
+          }
+        },
+        "time": {
+          "type": "Text",
+          "config": {
+            "label": "Time",
+            "placeholder": ""
+          }
+        },
+        "comment": {
+          "type": "Text",
+          "config": {
+            "label": "comment",
+            "placeholder": ""
+          }
+        },
+        "degree": {
+          "type": "Text",
+          "config": {
+            "label": "degree",
+            "placeholder": ""
+          }
+        }
+      },
+      "items": {}
+    }
+  ]
+}

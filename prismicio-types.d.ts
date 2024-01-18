@@ -69,7 +69,10 @@ export type HomepageDocument<Lang extends string = string> =
     Lang
   >;
 
-type PageDocumentDataSlicesSlice = BiographySlice;
+type PageDocumentDataSlicesSlice =
+  | EducationnSlice
+  | FieldsListSlice
+  | BiographySlice;
 
 /**
  * Content for Page documents
@@ -85,6 +88,17 @@ interface PageDocumentData {
    * - **Documentation**: https://prismic.io/docs/field#slices
    */
   slices: prismic.SliceZone<PageDocumentDataSlicesSlice> /**
+   * Meta Title field in *Page*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: A title of the page used for social media and search engines
+   * - **API ID Path**: page.meta_title
+   * - **Tab**: SEO & Metadata
+   * - **Documentation**: https://prismic.io/docs/field#key-text
+   */;
+  meta_title: prismic.KeyTextField;
+
+  /**
    * Meta Description field in *Page*
    *
    * - **Field Type**: Text
@@ -92,7 +106,7 @@ interface PageDocumentData {
    * - **API ID Path**: page.meta_description
    * - **Tab**: SEO & Metadata
    * - **Documentation**: https://prismic.io/docs/field#key-text
-   */;
+   */
   meta_description: prismic.KeyTextField;
 
   /**
@@ -105,17 +119,6 @@ interface PageDocumentData {
    * - **Documentation**: https://prismic.io/docs/field#image
    */
   meta_image: prismic.ImageField<never>;
-
-  /**
-   * Meta Title field in *Page*
-   *
-   * - **Field Type**: Text
-   * - **Placeholder**: A title of the page used for social media and search engines
-   * - **API ID Path**: page.meta_title
-   * - **Tab**: SEO & Metadata
-   * - **Documentation**: https://prismic.io/docs/field#key-text
-   */
-  meta_title: prismic.KeyTextField;
 }
 
 /**
@@ -313,16 +316,6 @@ export interface BiographySliceDefaultPrimary {
   button_text: prismic.KeyTextField;
 
   /**
-   * Button Link field in *Biography → Primary*
-   *
-   * - **Field Type**: Link
-   * - **Placeholder**: *None*
-   * - **API ID Path**: biography.primary.button_link
-   * - **Documentation**: https://prismic.io/docs/field#link-content-relationship
-   */
-  button_link: prismic.LinkField;
-
-  /**
    * Avatar field in *Biography → Primary*
    *
    * - **Field Type**: Image
@@ -331,6 +324,16 @@ export interface BiographySliceDefaultPrimary {
    * - **Documentation**: https://prismic.io/docs/field#image
    */
   avatar: prismic.ImageField<never>;
+
+  /**
+   * Button Link field in *Biography → Primary*
+   *
+   * - **Field Type**: Link
+   * - **Placeholder**: *None*
+   * - **API ID Path**: biography.primary.button_link
+   * - **Documentation**: https://prismic.io/docs/field#link-content-relationship
+   */
+  button_link: prismic.LinkField;
 }
 
 /**
@@ -361,6 +364,151 @@ type BiographySliceVariation = BiographySliceDefault;
 export type BiographySlice = prismic.SharedSlice<
   "biography",
   BiographySliceVariation
+>;
+
+/**
+ * Primary content in *Educationn → Primary*
+ */
+export interface EducationnSliceDefaultPrimary {
+  /**
+   * Heading field in *Educationn → Primary*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: educationn.primary.heading
+   * - **Documentation**: https://prismic.io/docs/field#key-text
+   */
+  heading: prismic.KeyTextField;
+
+  /**
+   * Time field in *Educationn → Primary*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: educationn.primary.time
+   * - **Documentation**: https://prismic.io/docs/field#key-text
+   */
+  time: prismic.KeyTextField;
+
+  /**
+   * comment field in *Educationn → Primary*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: educationn.primary.comment
+   * - **Documentation**: https://prismic.io/docs/field#key-text
+   */
+  comment: prismic.KeyTextField;
+
+  /**
+   * degree field in *Educationn → Primary*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: educationn.primary.degree
+   * - **Documentation**: https://prismic.io/docs/field#key-text
+   */
+  degree: prismic.KeyTextField;
+}
+
+/**
+ * Default variation for Educationn Slice
+ *
+ * - **API ID**: `default`
+ * - **Description**: Default
+ * - **Documentation**: https://prismic.io/docs/slice
+ */
+export type EducationnSliceDefault = prismic.SharedSliceVariation<
+  "default",
+  Simplify<EducationnSliceDefaultPrimary>,
+  never
+>;
+
+/**
+ * Slice variation for *Educationn*
+ */
+type EducationnSliceVariation = EducationnSliceDefault;
+
+/**
+ * Educationn Shared Slice
+ *
+ * - **API ID**: `educationn`
+ * - **Description**: Educationn
+ * - **Documentation**: https://prismic.io/docs/slice
+ */
+export type EducationnSlice = prismic.SharedSlice<
+  "educationn",
+  EducationnSliceVariation
+>;
+
+/**
+ * Primary content in *FieldsList → Primary*
+ */
+export interface FieldsListSliceDefaultPrimary {
+  /**
+   * Heading field in *FieldsList → Primary*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: fields_list.primary.heading
+   * - **Documentation**: https://prismic.io/docs/field#key-text
+   */
+  heading: prismic.KeyTextField;
+}
+
+/**
+ * Primary content in *FieldsList → Items*
+ */
+export interface FieldsListSliceDefaultItem {
+  /**
+   * fieldname field in *FieldsList → Items*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: fields_list.items[].fieldname
+   * - **Documentation**: https://prismic.io/docs/field#key-text
+   */
+  fieldname: prismic.KeyTextField;
+
+  /**
+   * fieldcolor field in *FieldsList → Items*
+   *
+   * - **Field Type**: Color
+   * - **Placeholder**: *None*
+   * - **API ID Path**: fields_list.items[].fieldcolor
+   * - **Documentation**: https://prismic.io/docs/field#color
+   */
+  fieldcolor: prismic.ColorField;
+}
+
+/**
+ * Default variation for FieldsList Slice
+ *
+ * - **API ID**: `default`
+ * - **Description**: Default
+ * - **Documentation**: https://prismic.io/docs/slice
+ */
+export type FieldsListSliceDefault = prismic.SharedSliceVariation<
+  "default",
+  Simplify<FieldsListSliceDefaultPrimary>,
+  Simplify<FieldsListSliceDefaultItem>
+>;
+
+/**
+ * Slice variation for *FieldsList*
+ */
+type FieldsListSliceVariation = FieldsListSliceDefault;
+
+/**
+ * FieldsList Shared Slice
+ *
+ * - **API ID**: `fields_list`
+ * - **Description**: FieldsList
+ * - **Documentation**: https://prismic.io/docs/slice
+ */
+export type FieldsListSlice = prismic.SharedSlice<
+  "fields_list",
+  FieldsListSliceVariation
 >;
 
 /**
@@ -489,6 +637,15 @@ declare module "@prismicio/client" {
       BiographySliceDefaultPrimary,
       BiographySliceVariation,
       BiographySliceDefault,
+      EducationnSlice,
+      EducationnSliceDefaultPrimary,
+      EducationnSliceVariation,
+      EducationnSliceDefault,
+      FieldsListSlice,
+      FieldsListSliceDefaultPrimary,
+      FieldsListSliceDefaultItem,
+      FieldsListSliceVariation,
+      FieldsListSliceDefault,
       HeroSlice,
       HeroSliceDefaultPrimary,
       HeroSliceVariation,

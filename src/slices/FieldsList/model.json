@@ -1,0 +1,41 @@
+{
+  "id": "fields_list",
+  "type": "SharedSlice",
+  "name": "FieldsList",
+  "description": "FieldsList",
+  "variations": [
+    {
+      "id": "default",
+      "name": "Default",
+      "docURL": "...",
+      "version": "initial",
+      "description": "Default",
+      "imageUrl": "",
+      "primary": {
+        "heading": {
+          "type": "Text",
+          "config": {
+            "label": "Heading",
+            "placeholder": ""
+          }
+        }
+      },
+      "items": {
+        "fieldname": {
+          "type": "Text",
+          "config": {
+            "label": "fieldname",
+            "placeholder": ""
+          }
+        },
+        "fieldcolor": {
+          "type": "Color",
+          "config": {
+            "label": "fieldcolor",
+            "placeholder": ""
+          }
+        }
+      }
+    }
+  ]
+}

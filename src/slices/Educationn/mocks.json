@@ -1,0 +1,29 @@
+[
+	{
+		"__TYPE__": "SharedSliceContent",
+		"variation": "default",
+		"primary": {
+			"heading": {
+				"__TYPE__": "FieldContent",
+				"value": "gravity",
+				"type": "Text"
+			},
+			"time": {
+				"__TYPE__": "FieldContent",
+				"value": "flies",
+				"type": "Text"
+			},
+			"comment": {
+				"__TYPE__": "FieldContent",
+				"value": "slightly",
+				"type": "Text"
+			},
+			"degree": {
+				"__TYPE__": "FieldContent",
+				"value": "agree",
+				"type": "Text"
+			}
+		},
+		"items": []
+	}
+]

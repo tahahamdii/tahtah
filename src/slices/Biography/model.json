@@ -35,20 +35,20 @@
             "placeholder": ""
           }
         },
-        "button_link": {
-          "type": "Link",
-          "config": {
-            "label": "Button Link",
-            "placeholder": "",
-            "select": null
-          }
-        },
         "avatar": {
           "type": "Image",
           "config": {
             "label": "Avatar",
             "constraint": {},
             "thumbnails": []
+          }
+        },
+        "button_link": {
+          "type": "Link",
+          "config": {
+            "label": "Button Link",
+            "placeholder": "",
+            "select": null
           }
         }
       },
