@@ -4,6 +4,8 @@ import Link from 'next/link';
 import React, { useEffect, useRef, useState } from 'react'
 import { MdArrowOutward } from 'react-icons/md';
 import { gsap } from 'gsap';
+import { ScrollTrigger } from 'gsap/ScrollTrigger';
+gsap.registerPlugin(ScrollTrigger)
 
 type ContentListProps = {
     items: Content.BlogPostDocument[] | Content.ProjectsDocument[];
@@ -22,12 +24,37 @@ export default function ContentList({
 
     const component = useRef(null);
     const revealRef = useRef(null);
+    const itemsRef = useRef<Array<HTMLElement | null>>([]);
+
 
     const [currentItem, setCurrentItem] = useState<null | number>(null);
 
     const lastMousePos = useRef({ x: 0, y: 0 });
 
     const urlPrefixe = contentType === "Blog" ? "/blog" : "/projects";
+
+    useEffect(()=>{
+        let ctx = gsap.context(() => {
+            itemsRef.current.forEach((item)=>{
+                gsap.fromTo(item,
+                    {opacity:0, y:20},
+                    {opacity:1,
+                    y:0,
+                    duration:1.7,
+                    ease:'elastic.out(1,0.3)',
+                    scrollTrigger:{
+                        trigger: item,
+                        start: "top bottom-=100px",
+                        toggleActions: "play none none none"
+
+                    },
+                    }
+                )
+            });
+        })
+    })
+
+
     useEffect(() => {
         const handleMouseMove = (c: MouseEvent) => {
             const mousePos = { x: c.clientX, y: c.clientY + window.screenY };
@@ -45,6 +72,7 @@ export default function ContentList({
                         rotation: speed * (mousePos.x > lastMousePos.current.x ? 1 : -1),
                         ease: "back.out(2)",
                         duration: 1.3,
+                        opacity: 1,
                     });
                 }
                 lastMousePos.current = mousePos;
@@ -86,6 +114,7 @@ export default function ContentList({
                         {isFilled.keyText(item.data.title) && (
                             <li key={index} className='list-item opacity-0f'
                                 onMouseEnter={() => onMouseEnter(index)}
+                                ref={(el) => (itemsRef.current[index] = el)}
                             >
                                 <Link href={urlPrefixe + "/" + item.uid}
                                     className='flex flex-col justify-between border-t border-t-slate-600 py-10 text-slate-700 md:flex-row'
@@ -115,7 +144,7 @@ export default function ContentList({
             </ul>
 
             <div
-                className='hover-reveal pointer-events-none absolute left-0 top-0 -z-10 h-[320px] w-[220px] rounded-lg  bg-cover bg-center opacity-0f transition-[background] duration-300'
+                className='hover-reveal pointer-events-none absolute left-0 top-0 -z-10 h-[320px] w-[220px] rounded-lg  bg-cover bg-center opacity-0 transition-[background] duration-300'
                 style={{
                     backgroundImage: currentItem !== null ? `url(${contentImages[currentItem]})` : "",
                 }}
