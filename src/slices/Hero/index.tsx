@@ -98,9 +98,9 @@ const renderLetters  = (name:KeyTextField, key: string) => {
             
 
           </h1>
-            <span style={{ fontFamily: 'YourFontName' }} className="job-title1 block text-white bg-clip-text text-2xl font-light  tracking-[.2em] text-transparent opacity-100 md:text-4xl">{slice.primary.tagline1}</span>
-            <span style={{ fontFamily: 'YourFontName' }} className="job-title2 block text-white bg-clip-text text-2xl font-light  tracking-[.2em] text-transparent opacity-100 md:text-4xl">{slice.primary.tagline2}</span>
-            <span style={{ fontFamily: 'YourFontName' }} className="job-title3 block text-white bg-clip-text text-2xl font-light  tracking-[.2em] text-transparent opacity-100 md:text-4xl">{slice.primary.tagline3}</span>
+            <span style={{ fontFamily: 'YourFontName' }} className="job-title1 block text-black bg-clip-text text-2xl font-light  tracking-[.2em]  opacity-100 md:text-4xl">{slice.primary.tagline1}</span>
+            <span style={{ fontFamily: 'YourFontName' }} className="job-title2 block text-black bg-clip-text text-2xl font-light  tracking-[.2em]  opacity-100 md:text-4xl">{slice.primary.tagline2}</span>
+            <span style={{ fontFamily: 'YourFontName' }} className="job-title3 block text-black bg-clip-text text-2xl font-light  tracking-[.2em]  opacity-100 md:text-4xl">{slice.primary.tagline3}</span>
             <div className="absolute inset-0 z-0 flex items-center justify-center">
            
       </div>

@@ -3,6 +3,7 @@ import { Content, asImageSrc, isFilled } from '@prismicio/client'
 import Link from 'next/link';
 import React, { useEffect, useRef, useState } from 'react'
 import { MdArrowOutward } from 'react-icons/md';
+import { gsap } from 'gsap';
 
 type ContentListProps = {
     items: Content.BlogPostDocument[] | Content.ProjectsDocument[];
@@ -22,28 +23,45 @@ export default function ContentList({
     const component = useRef(null);
     const revealRef = useRef(null);
 
-    const [currentItem, setCurrentItem] = useState <null | number>(null);
+    const [currentItem, setCurrentItem] = useState<null | number>(null);
 
-    const lastMousePos = useRef({x: 0, y:0});
+    const lastMousePos = useRef({ x: 0, y: 0 });
 
     const urlPrefixe = contentType === "Blog" ? "/blog" : "/projects";
-    useEffect(()=>{
-        const handleMouse = (c: MouseEvent) =>{
-            const mousePos = {x: c.clientX, y:c.clientY + window.screenY};
+    useEffect(() => {
+        const handleMouseMove = (c: MouseEvent) => {
+            const mousePos = { x: c.clientX, y: c.clientY + window.screenY };
 
             //calculate speed and direction 
-            const speed = Math.sqrt(Math.pow(mousePos.x - lastMousePos.current.x, 2))
-            let ctx = gsap.context(()=>{
-                if(currentItem !== null){
+            const speed = Math.sqrt(Math.pow(mousePos.x - lastMousePos.current.x, 2));
+            let ctx = gsap.context(() => {
+                if (currentItem !== null) {
                     const maxY = window.scrollY + window.innerHeight - 350;
-                    const maxX = window.innerWidth - 250 ;
+                    const maxX = window.innerWidth - 250;
+
+                    gsap.to(revealRef.current, {
+                        x: gsap.utils.clamp(0, maxX, mousePos.x - 110),
+                        y: gsap.utils.clamp(0, maxY, mousePos.y - 160),
+                        rotation: speed * (mousePos.x > lastMousePos.current.x ? 1 : -1),
+                        ease: "back.out(2)",
+                        duration: 1.3,
+                    });
                 }
-            })
-        }
-    })
+                lastMousePos.current = mousePos;
+                return () => ctx.revert();
+
+            }, component);
+        };
+
+        window.addEventListener("mousemove", handleMouseMove);
+
+        return () => {
+            window.removeEventListener("mousemove", handleMouseMove);
+        };
+    }, [currentItem]);
 
 
-    const contentImages = items.map((item)=>{
+    const contentImages = items.map((item) => {
         const image = isFilled.image(item.data.hoverimage) ? item.data.hoverimage : fallbackItemImage;
         return asImageSrc(image, {
             fit: "crop",
@@ -53,7 +71,7 @@ export default function ContentList({
         });
     });
 
-    const onMouseEnter = (index : number) => {
+    const onMouseEnter = (index: number) => {
         setCurrentItem(index)
     }
     const onMouseLeave = () => {
@@ -67,7 +85,7 @@ export default function ContentList({
                     <>
                         {isFilled.keyText(item.data.title) && (
                             <li key={index} className='list-item opacity-0f'
-                            onMouseEnter={() => onMouseEnter(index)}
+                                onMouseEnter={() => onMouseEnter(index)}
                             >
                                 <Link href={urlPrefixe + "/" + item.uid}
                                     className='flex flex-col justify-between border-t border-t-slate-600 py-10 text-slate-700 md:flex-row'
@@ -91,21 +109,19 @@ export default function ContentList({
 
                     </>
                 ))}
+                {/* {hover elemnt} */}
+
 
             </ul>
-            {/* {hover elemnt} */}
-            <div 
-            className='hover-reveal pointer-events-none absolute left-0 top-0 -z-10 h-[320px] w-[220px] rounded-lg  bg-cover bg-center opacity-0f transition-[background] duration-300'
-            style={{
-                backgroundImage : currentItem !== null ? `url(${contentImages[currentItem]})` : "",
-            }}
-            ref={revealRef}
-            >
-            
-            
-            
-            </div>
 
+            <div
+                className='hover-reveal pointer-events-none absolute left-0 top-0 -z-10 h-[320px] w-[220px] rounded-lg  bg-cover bg-center opacity-0f transition-[background] duration-300'
+                style={{
+                    backgroundImage: currentItem !== null ? `url(${contentImages[currentItem]})` : "",
+                }}
+                ref={revealRef}
+            >
+            </div>
 
         </div>
     );
