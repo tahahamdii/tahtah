@@ -49,10 +49,11 @@ export default function ContentList({
 
                     },
                     }
-                )
+                );
             });
-        })
-    })
+            return () => ctx.revert();
+        }, component);
+    }, [])
 
 
     useEffect(() => {
@@ -89,6 +90,8 @@ export default function ContentList({
     }, [currentItem]);
 
 
+
+
     const contentImages = items.map((item) => {
         const image = isFilled.image(item.data.hoverimage) ? item.data.hoverimage : fallbackItemImage;
         return asImageSrc(image, {
@@ -98,6 +101,19 @@ export default function ContentList({
             exp: -10,
         });
     });
+
+
+        //mapping the image ahead for better performance baby
+        useEffect(() =>{
+            contentImages.forEach((url)=>{
+                if(!url) return;
+                const img = new Image();
+                img.src = url;
+            })
+        },[contentImages]);
+
+
+        
 
     const onMouseEnter = (index: number) => {
         setCurrentItem(index)
