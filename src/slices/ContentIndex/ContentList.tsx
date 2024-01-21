@@ -133,7 +133,7 @@ export default function ContentList({
                                 ref={(el) => (itemsRef.current[index] = el)}
                             >
                                 <Link href={urlPrefixe + "/" + item.uid}
-                                    className='flex flex-col justify-between border-t border-t-slate-600 py-10 text-slate-700 md:flex-row'
+                                    className='flex flex-col justify-between border-t border-t-slate-600 py-10 text-gray-950 md:flex-row'
                                     aria-label={item.data.title}
 
                                 >

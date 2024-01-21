@@ -66,7 +66,7 @@ const FieldsList = ({ slice }: FieldsListProps): JSX.Element => {
         <Heading size="xl" className="mb-8" as="h2">{slice.primary.heading}</Heading></Bounded>
       {slice.items.map(({ fieldname, fieldcolor }, index) => (
         <div key={index}
-          className="tech-row mb-8 flex items-center justify-center gap-4 text-slate-600"
+          className="tech-row mb-8 flex items-center justify-center gap-4 text-orange-950"
           aria-label={fieldname || undefined}>
           {Array.from({ length: 15 }, (_, index) => (
             <React.Fragment key={index}>
