@@ -8,5 +8,6 @@ export const components = {
   educationn: dynamic(() => import("./Educationn")),
   fields_list: dynamic(() => import("./FieldsList")),
   hero: dynamic(() => import("./Hero")),
+  image_block: dynamic(() => import("./ImageBlock")),
   text_block: dynamic(() => import("./TextBlock")),
 };
