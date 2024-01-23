@@ -1,8 +1,8 @@
 {
-  "id": "educationn",
+  "id": "experience",
   "type": "SharedSlice",
-  "name": "Educationn",
-  "description": "Educationn",
+  "name": "Experience",
+  "description": "Experience",
   "variations": [
     {
       "id": "default",
@@ -28,17 +28,17 @@
             "placeholder": ""
           }
         },
-        "timeperiod": {
-          "type": "Text",
-          "config": {
-            "label": "TimePeriod",
-            "placeholder": ""
-          }
-        },
         "institution": {
           "type": "Text",
           "config": {
             "label": "Institution",
+            "placeholder": ""
+          }
+        },
+        "timeperiod": {
+          "type": "Text",
+          "config": {
+            "label": "TimePeriod",
             "placeholder": ""
           }
         },
