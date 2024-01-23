@@ -90,8 +90,8 @@ const renderLetters  = (name:KeyTextField, key: string) => {
       data-slice-variation={slice.variation}
       ref={component}
     >
-      <div className="grid min-h-[70vh] grid-cols-1 md:grid-cols-2 items-center relative z-10">
-        <div className="col-start-1 md:row-start-1 relative z-20 flex flex-col items-center">
+      <div className="grid min-h-[70vh] grid-cols-1 items-center relative z-10">
+        <div className="col-start-1  relative z-20 flex flex-col items-center">
           <h1 className="mb-8 text-[clamp(3rem,20vmin,20rem)] font-extrabold leading-none tracking-tighter" aria-label={slice.primary.firstname + " " + slice.primary.lastname}>
             <span className="block text-gray-950">{renderLetters(slice.primary.firstname, "first")}</span>
             <span className="-mt[.2em] block text-gray-750">{renderLetters(slice.primary.lastname, "last")}</span>
@@ -106,7 +106,7 @@ const renderLetters  = (name:KeyTextField, key: string) => {
       </div>
      
         </div>
-        <div className="md:col-start-2 absolute inset-0 z-0 flex items-center justify-center">
+        <div className=" absolute inset-0 z-0 flex items-center justify-center">
         <Image
           className="object-cover"
           src={img}
