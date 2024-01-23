@@ -128,7 +128,7 @@ export default function ContentList({
                 {items.map((item, index) => (
                     <>
                         {isFilled.keyText(item.data.title) && (
-                            <li key={index} className='list-item opacity-0f'
+                            <li key={index} className='list-item opacity-0'
                                 onMouseEnter={() => onMouseEnter(index)}
                                 ref={(el) => (itemsRef.current[index] = el)}
                             >
