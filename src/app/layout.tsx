@@ -24,7 +24,7 @@ export default function RootLayout({
   
 
   return (
-    <html lang="en" className='bg-[#d6d0c8] text-gray-950'>
+    <html lang="en" className='bg-[#EDEAE4] text-gray-950'>
       <body className={clsx(urbanist.className,"relative min-h-screen")}>
         
         <Header/>
