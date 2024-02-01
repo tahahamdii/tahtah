@@ -5,7 +5,7 @@ import {useEffect, useRef} from "react";
 import { gsap } from "gsap";
 import './Hero.css'
 import Bounded from "@/components/Bounded";
-import img from '../../assets/ena.png';
+import img from '../../assets/tahtah.png';
 import Image from 'next/image'; // Import the next/image component
 
 
