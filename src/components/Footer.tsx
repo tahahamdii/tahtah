@@ -16,7 +16,7 @@ export default async function Footer() {
         <div className="name flex flex-col items-center justify-center gap-x-4 gap-y-2 sm:flex-row sm:justify-self-start">
           <Link
             href="/"
-            className="text-xl font-extrabold tracking-tighter text-gray-950 transition-colors duration-150 hover:text-yellow-400"
+            className="text-xl font-extrabold tracking-tighter text-gray-950 transition-colors duration-150 hover:text-[#ACA192]"
           >
             {settings.data.name}
           </Link>
@@ -37,7 +37,7 @@ export default async function Footer() {
                 <li>
                   <PrismicNextLink
                     className={clsx(
-                      "group relative block overflow-hidden  rounded px-3 py-1 text-base font-bold text-gray-950 transition-colors duration-150 hover:hover:text-yellow-400",
+                      "group relative block overflow-hidden  rounded px-3 py-1 text-base font-bold text-gray-950 transition-colors duration-150 hover:hover:text-[#ACA192]",
                     )}
                     field={link}
                   >
@@ -60,7 +60,7 @@ export default async function Footer() {
           {isFilled.link(settings.data.github) && (
             <PrismicNextLink
               field={settings.data.github}
-              className="p-2 text-2xl text-gray-950 transition-all duration-150 hover:scale-125 hover:text-yellow-400"
+              className="p-2 text-2xl text-gray-950 transition-all duration-150 hover:scale-125 hover:text-[#ACA192]"
               aria-label={settings.data.name + " on GitHub"}
             >
               <FaGithub />
@@ -70,7 +70,7 @@ export default async function Footer() {
           {isFilled.link(settings.data.linkedin) && (
             <PrismicNextLink
               field={settings.data.linkedin}
-              className="p-2 text-2xl text-gray-950 transition-all duration-150 hover:scale-125 hover:text-yellow-400"
+              className="p-2 text-2xl text-gray-950 transition-all duration-150 hover:scale-125 hover:text-[#ACA192]"
               aria-label={settings.data.name + " on LinkedIn"}
             >
               <FaLinkedin />
