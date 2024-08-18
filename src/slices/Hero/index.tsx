@@ -82,6 +82,7 @@ const renderLetters  = (name:KeyTextField, key: string) => {
 
 
 const linkField: LinkField = {
+  link_type: "Web",
   url: "https://www.linkedin.com/in/hamditaha/",
   // Additional properties if needed
 };
