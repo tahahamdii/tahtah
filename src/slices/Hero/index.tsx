@@ -86,37 +86,32 @@ const renderLetters  = (name:KeyTextField, key: string) => {
 
   return (
     <Bounded
-      data-slice-type={slice.slice_type}
-      data-slice-variation={slice.variation}
-      ref={component}
-    >
-      <div className="grid min-h-[70vh] grid-cols-2 md:grid-cols-2 items-center relative z-10">
-        <div className="col-start-1 md:row-start-1 relative z-20 flex flex-col items-center">
-          <h1 className="mb-8 text-[clamp(3rem,20vmin,20rem)] font-extrabold leading-none tracking-tighter" aria-label={slice.primary.firstname + " " + slice.primary.lastname}>
-            <span className="block text-gray-950">{renderLetters(slice.primary.firstname, "first")}</span>
-            <span className="-mt[.2em] block text-gray-750">{renderLetters(slice.primary.lastname, "last")}</span>
-            
+  data-slice-type={slice.slice_type}
+  data-slice-variation={slice.variation}
+  ref={component}
+>
+  <div className="grid min-h-[70vh] grid-cols-1 md:grid-cols-2 items-center justify-center relative z-10">
+    <div className="col-start-1 md:row-start-1 relative z-20 flex flex-col items-center justify-center text-center">
+      <h1 className="mb-8 text-[clamp(3rem,20vmin,20rem)] font-extrabold leading-none tracking-tighter" aria-label={slice.primary.firstname + " " + slice.primary.lastname}>
+        <span className="block text-gray-950">{renderLetters(slice.primary.firstname, "first")}</span>
+        <span className="-mt[.2em] block text-gray-750">{renderLetters(slice.primary.lastname, "last")}</span>
+      </h1>
+      <span style={{ fontFamily: 'YourFontName' }} className="job-title1 block text-gray-950 bg-clip-text text-2xl font-light tracking-[.2em] opacity-100 md:text-4xl">{slice.primary.tagline1}</span>
+      <span style={{ fontFamily: 'YourFontName' }} className="job-title2 block text-gray-950 bg-clip-text text-2xl font-light tracking-[.2em] opacity-100 md:text-4xl">{slice.primary.tagline2}</span>
+      <span style={{ fontFamily: 'YourFontName' }} className="job-title3 block text-gray-950 bg-clip-text text-2xl font-light tracking-[.2em] opacity-100 md:text-4xl">{slice.primary.tagline3}</span>
+    </div>
+    <div className="md:col-start-2 absolute inset-0 z-0 hidden md:flex items-center justify-center">
+      <Image
+        className="object-cover"
+        src={img}
+        alt="Background Image"
+        layout="fill"
+        quality={100}
+      />
+    </div>
+  </div>
+</Bounded>
 
-          </h1>
-            <span style={{ fontFamily: 'YourFontName' }} className="job-title1 block text-gray-950 bg-clip-text text-2xl font-light  tracking-[.2em]  opacity-100 md:text-4xl">{slice.primary.tagline1}</span>
-            <span style={{ fontFamily: 'YourFontName' }} className="job-title2 block text-gray-950 bg-clip-text text-2xl font-light  tracking-[.2em]  opacity-100 md:text-4xl">{slice.primary.tagline2}</span>
-            <span style={{ fontFamily: 'YourFontName' }} className="job-title3 block text-gray-950 bg-clip-text text-2xl font-light  tracking-[.2em]  opacity-100 md:text-4xl">{slice.primary.tagline3}</span>
-            <div className="absolute inset-0 z-0 flex items-center justify-center">
-           
-      </div>
-     
-        </div>
-        <div className="md:col-start-2 absolute inset-0 z-0 flex items-center justify-center">
-        <Image
-          className="object-cover"
-          src={img}
-          alt="Background Image"
-          layout="fill"
-          quality={100}
-        />
-      </div>
-      </div>
-    </Bounded>
   );
 };
 
