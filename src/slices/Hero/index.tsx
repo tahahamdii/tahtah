@@ -102,7 +102,7 @@ const label: KeyTextField = "Contact Me";
     
   <div className="col-start-1 md:row-start-1 flex flex-col items-center justify-center overflow-hidden pt-8 relative z-20 text-center space-y-4 md:space-y-6">
           <BoxReveal boxColor={"#9CB1B4"} duration={0.8}>
-            <p className="text-[3rem] md:text-[9.5rem] font-bold">
+            <p className="text-[3rem] md:text-[8rem] font-bold">
               Taha Hamdi<span className="text-[#ca865e]">.</span>
             </p>
           </BoxReveal>
