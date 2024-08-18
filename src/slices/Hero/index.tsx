@@ -1,5 +1,5 @@
 'use client'
-import { Content, KeyTextField } from "@prismicio/client";
+import { Content, KeyTextField, LinkField } from "@prismicio/client";
 import { SliceComponentProps } from "@prismicio/react";
 import {useEffect, useRef} from "react";
 import { gsap } from "gsap";
@@ -81,7 +81,12 @@ const renderLetters  = (name:KeyTextField, key: string) => {
 }
 
 
+const linkField: LinkField = {
+  url: "https://www.linkedin.com/in/hamditaha/",
+  // Additional properties if needed
+};
 
+const label: KeyTextField = "Contact Me";
 
 
 
@@ -124,7 +129,10 @@ const renderLetters  = (name:KeyTextField, key: string) => {
           </BoxReveal> */}
     
           <BoxReveal boxColor={"#9CB1B4"} duration={1}>
-            <Button className="mt-6 md:mt-8 bg-[#5046e6]"></Button>
+            <Button linkField={linkField}
+        label={label}
+        showIcon={true}
+        className="mt-6 md:mt-8 bg-[#5046e6]"></Button>
           </BoxReveal>
         </div>
         
