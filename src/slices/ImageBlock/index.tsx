@@ -11,7 +11,9 @@ export type ImageBlockProps = SliceComponentProps<Content.ImageBlockSlice>;
  */
 const ImageBlock = ({ slice }: ImageBlockProps): JSX.Element => {
   return (
-    <PrismicImage field={slice.primary.image} imgixParams={{w: 600}} />
+    <div className="rounded-3xl		">
+    <PrismicImage field={slice.primary.image} imgixParams={{w: 600}} className="rounded-3xl	" />
+    </div>
   );
 };
 
