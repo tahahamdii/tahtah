@@ -7,6 +7,8 @@ import './Hero.css'
 import Bounded from "@/components/Bounded";
 import img from '../../assets/tahtah.png';
 import Image from 'next/image'; // Import the next/image component
+import BoxReveal from "./BoxReveal";
+import Button from "@/components/Button";
 
 
 
@@ -91,24 +93,50 @@ const renderLetters  = (name:KeyTextField, key: string) => {
   ref={component}
 >
   <div className="grid min-h-[70vh] grid-cols-1 md:grid-cols-2 items-center justify-center relative z-10">
-    <div className="col-start-1 md:row-start-1 relative z-20 flex flex-col items-center justify-center text-center">
-      <h1 className="mb-8 text-[clamp(3rem,20vmin,20rem)] font-extrabold leading-none tracking-tighter" aria-label={slice.primary.firstname + " " + slice.primary.lastname}>
-        <span className="block text-gray-950">{renderLetters(slice.primary.firstname, "first")}</span>
-        <span className="-mt[.2em] block text-gray-750">{renderLetters(slice.primary.lastname, "last")}</span>
-      </h1>
-      <span style={{ fontFamily: 'YourFontName' }} className="job-title1 block text-gray-950 bg-clip-text text-2xl font-light tracking-[.2em] opacity-100 md:text-4xl">{slice.primary.tagline1}</span>
-      <span style={{ fontFamily: 'YourFontName' }} className="job-title2 block text-gray-950 bg-clip-text text-2xl font-light tracking-[.2em] opacity-100 md:text-4xl">{slice.primary.tagline2}</span>
-      <span style={{ fontFamily: 'YourFontName' }} className="job-title3 block text-gray-950 bg-clip-text text-2xl font-light tracking-[.2em] opacity-100 md:text-4xl">{slice.primary.tagline3}</span>
-    </div>
-    <div className="md:col-start-2 absolute inset-0 z-0 hidden md:flex items-center justify-center">
-      <Image
-        className="object-cover"
-        src={img}
-        alt="Background Image"
-        layout="fill"
-        quality={100}
-      />
-    </div>
+    
+  <div className="col-start-1 md:row-start-1 flex flex-col items-center justify-center overflow-hidden pt-8 relative z-20 text-center space-y-4 md:space-y-6">
+          <BoxReveal boxColor={"#9CB1B4"} duration={0.8}>
+            <p className="text-[3rem] md:text-[9.5rem] font-bold">
+              Taha Hamdi<span className="text-[#ca865e]">.</span>
+            </p>
+          </BoxReveal>
+    
+          <BoxReveal boxColor={"#9CB1B4"} duration={1}>
+            <h2 className="text-[1rem] md:text-[1.5rem] mt-2">
+              Software Engineer{" // "}
+              <span className="text-[#ca865e]">Junior Entrepreneur</span><span className="text-[#684925]">.</span>
+            </h2>
+          </BoxReveal>
+    
+          {/* <BoxReveal boxColor={"#9CB1B4"} duration={1.2}>
+            <div className="mt-4 text-[0.875rem] md:text-[1rem]">
+              <p>
+                -&gt; 20+ free and open-source animated components built with
+                <span className="font-semibold text-[#5046e6]"> React</span>,
+                <span className="font-semibold text-[#5046e6]"> Typescript</span>,
+                <span className="font-semibold text-[#5046e6]"> Tailwind CSS</span>,
+                and
+                <span className="font-semibold text-[#5046e6]"> Framer Motion</span>.
+                <br />
+                -&gt; 100% open-source, and customizable. <br />
+              </p>
+            </div>
+          </BoxReveal> */}
+    
+          <BoxReveal boxColor={"#9CB1B4"} duration={1}>
+            <Button className="mt-6 md:mt-8 bg-[#5046e6]"></Button>
+          </BoxReveal>
+        </div>
+        
+        <div className="md:col-start-2 absolute inset-0 z-0 hidden md:flex items-center justify-center">
+          <Image
+            className="object-cover"
+            src={img}
+            alt="Background Image"
+            layout="fill"
+            quality={100}
+          />
+        </div>
   </div>
 </Bounded>
 
